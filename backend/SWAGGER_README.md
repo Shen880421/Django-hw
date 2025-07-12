@@ -17,8 +17,11 @@ python manage.py runserver
 ### 3. 訪問 API 文檔
 
 - **Swagger UI**: [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/docs/)
+![alt text](image.png)
 - **Redoc**: [http://127.0.0.1:8000/api/redoc/](http://127.0.0.1:8000/api/redoc/)
+![alt text](image-1.png)
 - **OpenAPI Schema**: [http://127.0.0.1:8000/api/schema/](http://127.0.0.1:8000/api/schema/)
+![alt text](image-2.png)
 
 ## 📋 API 端點
 
