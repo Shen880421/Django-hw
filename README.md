@@ -33,6 +33,15 @@
 **後端**: Python + Django + 資料庫 </br>
 **工具**: GitHub Actions + Docker + ESLint
 
+## API 文檔
+
+本專案已整合完整的 Swagger/OpenAPI 文檔系統，提供互動式 API 文檔和測試界面。
+
+- 📖 **[API 文檔完整指南](backend/SWAGGER_README.md)**
+- 🌐 **Swagger UI**: http://127.0.0.1:8000/api/docs/
+- 📚 **Redoc**: http://127.0.0.1:8000/api/redoc/
+- 📋 **OpenAPI Schema**: http://127.0.0.1:8000/api/schema/
+
 ## 快速開始
 
 [運行文件](docs/HowToUse/operation.md)
@@ -42,10 +51,18 @@
 git clone https://github.com/TobyWuNumOne/tutor-matching-platform.git
 cd tutor-matching-platform
 
-# 2. 查看開發指南
+# 2. 後端環境設定
+cd backend
+pip install -r requirements.txt
+python manage.py runserver
+
+# 3. 查看 API 文檔
+# 訪問 http://127.0.0.1:8000/api/docs/
+
+# 4. 查看開發指南
 cat docs/development/information.md
 
-# 3. 認領第一個任務
+# 5. 認領第一個任務
 # 前往: https://github.com/users/TobyWuNumOne/projects/4
 ```
 
@@ -58,6 +75,7 @@ cat docs/development/information.md
 - 📖 [專案資源](docs/development/information.md)
 - 💬 [專案紀錄](docs/log/Log.md)
 - 🚀 [運行文件](docs/HowToUse/operation.md)
+- 🔗 [API 文檔指南](backend/SWAGGER_README.md)
 
 ### 開發規範
 
