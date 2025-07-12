@@ -14,9 +14,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.http import HttpResponse
+from rest_framework.routers import DefaultRouter
+from tutor.views import UsersViewSet, CoursesViewSet, BookingsViewSet, ReviewsViewSet
+
+# 簡單的首頁視圖
+def home(request):
+    return HttpResponse("<h1>Welcome to the Django Backend!</h1>")
+
+# 建立 DRF router
+router = DefaultRouter()
+router.register(r'users', UsersViewSet)
+router.register(r'courses', CoursesViewSet)
+router.register(r'bookings', BookingsViewSet)
+router.register(r'reviews', ReviewsViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),  # API 路由
+    path("", home),  # 空路徑的處理方式
 ]
