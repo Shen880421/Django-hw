@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     "tutor.apps.TutorConfig",
     "rest_framework",
     "corsheaders",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -65,25 +66,25 @@ CORS_ALLOWED_ORIGINS = [
 
 # 允許的請求方法
 CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
 ]
 
 # 允許的請求頭
 CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
 ]
 
 ROOT_URLCONF = "backend.urls"
@@ -137,7 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # 自訂用戶模型
-AUTH_USER_MODEL = 'tutor.Users'
+AUTH_USER_MODEL = "tutor.Users"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -147,8 +148,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",  # 僅啟用 JSON 渲染
-        'rest_framework.renderers.BrowsableAPIRenderer', #可以用REST framework UI渲染
+        "rest_framework.renderers.BrowsableAPIRenderer",  # 可以用REST framework UI渲染
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+# drf-spectacular 設定
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Django 家教媒合平台 API",
+    "DESCRIPTION": "家教媒合平台的 REST API 文檔",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "SCHEMA_PATH_PREFIX": "/api/",
+    "COMPONENT_SPLIT_REQUEST": True,
+    "SORT_OPERATIONS": False,
 }
 
 # Static files (CSS, JavaScript, Images)
